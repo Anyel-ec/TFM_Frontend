@@ -1,0 +1,59 @@
+﻿@import "https://pro.fontawesome.com/releases/v6.0.0-beta1/css/all.css";
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme { --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif; }
+html, body { min-height: 100%; }
+body { margin: 0; font-family: var(--font-sans); }
+@layer components {
+  .tab { @apply flex w-full items-center gap-3 rounded-lg px-3 py-3 text-left text-sm text-gray-500 transition hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800; }
+  .active-tab { @apply bg-cyan-500/10 font-semibold text-cyan-700 dark:text-cyan-300; }
+  .section-title { @apply text-xl font-semibold; }
+  .section-copy { @apply mt-1 text-sm text-gray-500; }
+  .subheading { @apply mt-6 mb-3 text-sm font-semibold uppercase tracking-wider text-gray-500; }
+  .field { @apply block text-sm text-gray-600 dark:text-gray-300; }
+  .field span { @apply mb-1.5 block text-xs font-medium text-gray-500; }
+  .field input { @apply w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 outline-none focus:border-cyan-500 dark:border-gray-700 dark:bg-gray-950; }
+  .primary { @apply rounded-lg bg-cyan-500 px-4 py-2.5 text-sm font-semibold text-gray-950 hover:bg-cyan-400; }
+  .secondary { @apply rounded-lg border border-gray-300 px-4 py-2.5 text-sm text-gray-600 hover:border-cyan-500 dark:border-gray-700 dark:text-gray-300; }
+  .theme-card { @apply flex flex-col gap-2 rounded-xl border border-gray-200 p-3 text-left transition hover:border-cyan-500 dark:border-gray-700; }
+  .theme-card small { @apply text-xs text-gray-500; }
+}
+html:not(.dark) .mail-history-root .bg-gray-900 { background-color: #fff; }
+html:not(.dark) .mail-history-root .bg-gray-800 { background-color: #f9fafb; }
+html:not(.dark) .mail-history-root .border-gray-800,
+html:not(.dark) .mail-history-root .border-gray-700 { border-color: #e5e7eb; }
+html:not(.dark) .mail-history-root .text-white,
+html:not(.dark) .mail-history-root .text-gray-200,
+html:not(.dark) .mail-history-root .text-gray-300 { color: #111827; }
+.mail-history-root > main > header > div:last-child { display: none; }
+.mail-history-root tbody tr:hover { background-color: #f9fafb; }
+.dark .mail-history-root tbody tr:hover { background-color: #1f2937; }
+/* Las vistas se renderizan dentro de AdminLayout: la navegacin y topbar son globales. */
+app-dashboard .min-h-screen > aside,
+app-osint-feed .min-h-screen > aside,
+app-review-queue .min-h-screen > aside,
+app-ai-correlations .min-h-screen > aside,
+app-cmdb-list .min-h-screen > aside,
+app-alert-history .min-h-screen > aside { display: none; }
+app-dashboard .min-h-screen > main > header,
+app-osint-feed .min-h-screen > main > header,
+app-review-queue .min-h-screen > main > header,
+app-ai-correlations .min-h-screen > main > header,
+app-cmdb-list .min-h-screen > main > header,
+app-alert-history .min-h-screen > main > header,
+app-settings .min-h-screen > header { display: none; }
+app-dashboard .min-h-screen > main,
+app-osint-feed .min-h-screen > main,
+app-review-queue .min-h-screen > main,
+app-ai-correlations .min-h-screen > main,
+app-cmdb-list .min-h-screen > main,
+app-alert-history .min-h-screen > main { padding-left: 0; }
+app-cmdb-list .min-h-screen,
+app-settings .min-h-screen,
+app-osint-feed .min-h-screen,
+app-review-queue .min-h-screen { padding-left: 2rem; }
+app-cmdb-list .min-h-screen,
+app-settings .min-h-screen,
+app-osint-feed .min-h-screen,
+app-review-queue .min-h-screen { padding-top: 2rem; }
+
